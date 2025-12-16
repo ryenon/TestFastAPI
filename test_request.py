@@ -2,12 +2,14 @@ import requests
 import time
 from multiprocessing import Pool
 
+# Fonction synchrone
 def compute_response_time_sync(x):
     t0 = time.time()
     requests.get(url='htpp:/127.0.0.1:8000/sync')
     t1 = time.time()
     return t1 - t0
 
+# Fonction asynchrone
 def compute_response_time_async(x):
     t0 = time.time()
     requests.get(url='127.0.0.1/8000/async')

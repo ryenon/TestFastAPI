@@ -43,6 +43,13 @@ users_db = [
     }
 ]
 
+responses = {
+    200: {'description': 'ok'},
+    404: {'description': 'Item not found'},
+    302: {'description': 'The item was moved'},
+    403: {'description': 'Not enough privilege'},
+}  
+
 data = [1, 2, 3, 4, 5]
 
 @api.get('/data', name='Data access')
@@ -279,12 +286,7 @@ def get_my_custom_exception():
         date=str(datetime.datetime.now())
     )
 
-responses = {
-    200: {'description': 'ok'},
-    404: {'description': 'Item not found'},
-    302: {'description': 'The item was moved'},
-    403: {'description': 'Not enough privilege'},
-}    
+  
 
 @api.get('/thing', responses=responses)
 def get_thing():
